@@ -1,55 +1,25 @@
-# Progressive Horizon Learning
-
-## Why I read this
-Relevant to Amazon Prime personalization and long-term customer optimization.
-
 ## Problem
-What problem are they solving?
+Long-term customer outcomes matter, but their labels mature slowly.
 
 ## Why it is hard
-What constraint makes the obvious solution insufficient?
+- Long-horizon feedback is delayed.
+- Customer preferences may change over time.
+- Waiting for mature labels delays deployment.
+- Short-horizon optimization may not align with long-term value.
 
-## Core idea
-What is the one-sentence modeling idea?
+## Core mechanisms
 
-## Baselines / alternatives
-What existing approaches are compared?
+### 1. Multi-Horizon Augmentation
+Predict multiple horizons such as 1D, 7D, 14D, 30D, and 60D.
 
-## Evaluation
-How do they know the method works?
+### 2. Horizon Masking
+Only include a sample-horizon target in the loss after that target has matured.
 
-## Tradeoffs / limitations
-What does the method gain and sacrifice?
+### 3. Dynamic Horizon Selection
+Use the longest horizon that has enough mature data and satisfies a performance guardrail.
 
-## Applied Scientist takeaway
-What does this teach me about problem formulation?
-
-## Interview connection
-What question could I naturally discuss or ask?
-
-## Implementation idea
-Can I reproduce a simplified version?
-
-# Progressive Horizon Learning
-
-## Problem
-Long-term customer outcomes are important, but feedback is delayed.
-
-## Why existing approaches are insufficient
-TODO tomorrow.
-
-## Core idea
-TODO tomorrow.
-
-## Evaluation
-TODO tomorrow.
-
-## What surprised me
-TODO tomorrow.
-
-## 2026 follow-up
-What has changed since 2023?
-What competing approaches exist now?
-
-## Reproduction idea
-What is the smallest toy version I can implement?
+## Questions still open
+- How exactly is linkage implemented?
+- Why does the pretrained encoder help?
+- How does Boltzmann exploration affect the policy?
+- What are the tradeoffs of extending to very long horizons?
